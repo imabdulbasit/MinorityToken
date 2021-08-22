@@ -1,0 +1,269 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ROUTER",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "USDC",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getInSwapAndLiquify",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "minorityToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contractTokenBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "swapAndLiquify",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "swapRouter",
+				"outputs": [
+					{
+						"internalType": "contract ISwapRouter02",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "usdcToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Manages the process of swapping and adding liquidity for the Minority token Owner is the token contract ",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/MinorityLiquidityManager.sol": "MinorityLiquidityManager"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Context.sol": {
+			"keccak256": "0x63ba2e623d3438773367fa717cbd7e7ee9557c728d6f5a76aa288a8199ade742",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ff5d7f2582599ce6b00b90d499d7a64bcb90d11a8165bd8aa8efcfb5016e81c0",
+				"dweb:/ipfs/QmUi9ow2XWkqNEdLC7734X3Xfn3ndBnFUNWgqrgPK7fUhK"
+			]
+		},
+		"contracts/IERC20.sol": {
+			"keccak256": "0x48c1b893a48e579ba7463a2cb3d30306e1df5c3c2be2a5cccb6e05ffd77c484c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://290b1bdd7c215fc4f6b6222f1646275617495e284e31933548d41b35c40ddedd",
+				"dweb:/ipfs/QmVEzjwkfev3Y8ZhZ6bBVNeE7mdSM1h961kVVZjkVaz7am"
+			]
+		},
+		"contracts/MinorityLiquidityManager.sol": {
+			"keccak256": "0x47f69d2dccbd8ab7092025753021267ac9f694af00b1eb0da3fa62f5e191be1a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://829c719873b725f48da0ed6c2e8485ff1641bfe9c6d09edb8e4f2e688408abd3",
+				"dweb:/ipfs/Qmc18VFhwffR1eKacTL2ZCJZq8PstYsbQ3HF8UyGa2FJ54"
+			]
+		},
+		"contracts/MinorityShared.sol": {
+			"keccak256": "0x4ec24899d88ea1f5bda3e4b8e79fbd68aa76ff3107a2fb96fd705288a70f7c00",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://788d95c9d3c1b5c349de02797a9c98611f1020b2e77ac7bbd017e0c69d8d4bd0",
+				"dweb:/ipfs/QmPH9xjX9i85GnHP74kHjpNpD4SyPs9pvvH1AMbG3onhoL"
+			]
+		},
+		"contracts/Ownable.sol": {
+			"keccak256": "0x33b659ff3980e52780df262aac918488dd2941f6177d886ae8cc3a2d8b5b3ed8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d1e65adc361f793778e11afbe066e024fe5c0fd67faf5305890915bb036eb1e1",
+				"dweb:/ipfs/QmaaGCSNBt6hVKUDv5k2Sj2eywaRxv5Q96tArZC1FjJ3dX"
+			]
+		},
+		"contracts/SafeMath.sol": {
+			"keccak256": "0x37facfc0b7e5a9ee9c8239bca7cb15d6825a2171df5e4bb04e48cd37c6b88e1c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd8ee66b728ccfbc68625307f2fb325a62963dff5ab83930b380664b071d9ca7",
+				"dweb:/ipfs/QmXB1sD7CQtM35PKvLhVTAjZ9PDLnj4PQHboKQTPZEnTMq"
+			]
+		},
+		"contracts/SwapInterfaces.sol": {
+			"keccak256": "0x677ed24a591fcd120bcb59bfe9041b685c8dc7fd1cfea71425984767f601879b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://44e743d38aa18c28bc68453bb4ecd739adcd51592e5a6398960807b3d96c02d0",
+				"dweb:/ipfs/QmakLNvc5CoEtdaFjbjiPDZXCrK8g3hC5y7UfZE3ypkV2d"
+			]
+		}
+	},
+	"version": 1
+}

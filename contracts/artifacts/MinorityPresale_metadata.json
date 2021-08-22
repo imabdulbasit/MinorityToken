@@ -1,0 +1,832 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expectedTokensAdded",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "actualTokensAdded",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expectedPaymentTokensAdded",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "actualPaymentTokensAdded",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "liquidityCreated",
+						"type": "uint256"
+					}
+				],
+				"name": "LiquidityAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldClosingTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newClosingTime",
+						"type": "uint256"
+					}
+				],
+				"name": "PresaleExtended",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "PresaleFinalised",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldOpeningTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newOpeningTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldClosingTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newClosingTime",
+						"type": "uint256"
+					}
+				],
+				"name": "PresaleTimesChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "purchaser",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountPaid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokensReserved",
+						"type": "uint256"
+					}
+				],
+				"name": "TokensPurchased",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ROUTER",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "USDC",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "buyTokens",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "cancelPresale",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "cancelled",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newOpeningTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newClosingTime",
+						"type": "uint256"
+					}
+				],
+				"name": "changePresaleTimings",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimRefund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "closingTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contributionsToClaim",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newClosingTime",
+						"type": "uint256"
+					}
+				],
+				"name": "extendTime",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "finalise",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "finalised",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "beneficiary",
+						"type": "address"
+					}
+				],
+				"name": "getContribution",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "hardcap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "hardcapReached",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "hasClosed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "individualCap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isOpen",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "numTokensToAddToLP",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "openingTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "operator",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paymentInWeth",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paymentToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "percentFundsToAddToLP",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_wallet",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_hardcap",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_softcap",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_individualCap",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_paymentToken",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_openingTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_closingTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_numTokensToAddToLP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_percentFundsToAddToLP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "doSafetyCheck",
+						"type": "bool"
+					}
+				],
+				"name": "setUpPresale",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_wallet",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_hardcap",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_softcap",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_individualCap",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_paymentToken",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_openingTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_closingTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_numTokensToAddToLP",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_percentFundsToAddToLP",
+						"type": "uint256"
+					}
+				],
+				"name": "setUpPresale",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "softcap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "softcapReached",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "swapRouter",
+				"outputs": [
+					{
+						"internalType": "contract ISwapRouter02",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "wallet",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "weiRaised",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "NB: This contract MUST be exempted from any token transfer fees, else claiming tokens will fail for some users",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/MinorityPresale.sol": "MinorityPresale"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Context.sol": {
+			"keccak256": "0x63ba2e623d3438773367fa717cbd7e7ee9557c728d6f5a76aa288a8199ade742",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ff5d7f2582599ce6b00b90d499d7a64bcb90d11a8165bd8aa8efcfb5016e81c0",
+				"dweb:/ipfs/QmUi9ow2XWkqNEdLC7734X3Xfn3ndBnFUNWgqrgPK7fUhK"
+			]
+		},
+		"contracts/IERC20.sol": {
+			"keccak256": "0x48c1b893a48e579ba7463a2cb3d30306e1df5c3c2be2a5cccb6e05ffd77c484c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://290b1bdd7c215fc4f6b6222f1646275617495e284e31933548d41b35c40ddedd",
+				"dweb:/ipfs/QmVEzjwkfev3Y8ZhZ6bBVNeE7mdSM1h961kVVZjkVaz7am"
+			]
+		},
+		"contracts/MinorityPresale.sol": {
+			"keccak256": "0xd8167fdde63ce01b58c374dba31dbaea98cb5313861bb85da8a386be505aa4d3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://506b8fad4f6a1efac573633a831c1c804ff852f6c01a7276e03c1355762723c8",
+				"dweb:/ipfs/QmSjCfKAhbju32YQAmrGPkkYkYHHBTcMEFWEMGq2phqj65"
+			]
+		},
+		"contracts/MinorityShared.sol": {
+			"keccak256": "0x4ec24899d88ea1f5bda3e4b8e79fbd68aa76ff3107a2fb96fd705288a70f7c00",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://788d95c9d3c1b5c349de02797a9c98611f1020b2e77ac7bbd017e0c69d8d4bd0",
+				"dweb:/ipfs/QmPH9xjX9i85GnHP74kHjpNpD4SyPs9pvvH1AMbG3onhoL"
+			]
+		},
+		"contracts/Ownable.sol": {
+			"keccak256": "0x33b659ff3980e52780df262aac918488dd2941f6177d886ae8cc3a2d8b5b3ed8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d1e65adc361f793778e11afbe066e024fe5c0fd67faf5305890915bb036eb1e1",
+				"dweb:/ipfs/QmaaGCSNBt6hVKUDv5k2Sj2eywaRxv5Q96tArZC1FjJ3dX"
+			]
+		},
+		"contracts/ReentrancyGuard.sol": {
+			"keccak256": "0x96039a4087111331c4d652c728e0040d2f2e0ed2928400a2959e46db4f2bb8df",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1e393ae9829327eb5acfa8481a9cff36041354a182b294e92542ab7d006176cc",
+				"dweb:/ipfs/QmSEfHtTtnAn7tPjNnvrfU4Muuxr6A5G3YQ9u5kQtEiutF"
+			]
+		},
+		"contracts/SafeMath.sol": {
+			"keccak256": "0x37facfc0b7e5a9ee9c8239bca7cb15d6825a2171df5e4bb04e48cd37c6b88e1c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd8ee66b728ccfbc68625307f2fb325a62963dff5ab83930b380664b071d9ca7",
+				"dweb:/ipfs/QmXB1sD7CQtM35PKvLhVTAjZ9PDLnj4PQHboKQTPZEnTMq"
+			]
+		},
+		"contracts/SwapInterfaces.sol": {
+			"keccak256": "0x677ed24a591fcd120bcb59bfe9041b685c8dc7fd1cfea71425984767f601879b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://44e743d38aa18c28bc68453bb4ecd739adcd51592e5a6398960807b3d96c02d0",
+				"dweb:/ipfs/QmakLNvc5CoEtdaFjbjiPDZXCrK8g3hC5y7UfZE3ypkV2d"
+			]
+		}
+	},
+	"version": 1
+}
