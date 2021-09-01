@@ -504,7 +504,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/MinorityVestingManager.sol": "MinorityVestingManager"
+			"protocol/contracts/MinorityVestingManager.sol": "MinorityVestingManager"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -518,7 +518,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Context.sol": {
+		"protocol/contracts/Context.sol": {
 			"keccak256": "0x63ba2e623d3438773367fa717cbd7e7ee9557c728d6f5a76aa288a8199ade742",
 			"license": "MIT",
 			"urls": [
@@ -526,7 +526,7 @@
 				"dweb:/ipfs/QmUi9ow2XWkqNEdLC7734X3Xfn3ndBnFUNWgqrgPK7fUhK"
 			]
 		},
-		"contracts/IERC20.sol": {
+		"protocol/contracts/IERC20.sol": {
 			"keccak256": "0x48c1b893a48e579ba7463a2cb3d30306e1df5c3c2be2a5cccb6e05ffd77c484c",
 			"license": "MIT",
 			"urls": [
@@ -534,15 +534,15 @@
 				"dweb:/ipfs/QmVEzjwkfev3Y8ZhZ6bBVNeE7mdSM1h961kVVZjkVaz7am"
 			]
 		},
-		"contracts/MinorityVestingManager.sol": {
-			"keccak256": "0x66128cc65d1c97c1e2391b181ff52da8c72b6747fd91f04d40b45f81835ddba1",
+		"protocol/contracts/MinorityVestingManager.sol": {
+			"keccak256": "0xd02b243fb20a0fd8b2f7929c1e7b37ebc244381b6bb94c8fd157be3d657cf2b8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://68df9c07daef8df79f5a021ba03a678e650ef3e8a5b9e60adb2770108386b206",
-				"dweb:/ipfs/Qma4DR6QH8rhCFFQ6YsoxRBP6SVe39iGsACNfoKD7U4n4X"
+				"bzz-raw://c49b700b6aabb822a2339df979acec5e643bf990a6f39bb6fec3dbfafa9be7a3",
+				"dweb:/ipfs/QmZCCamxDRQxpnjW1vAf9nFcNL9XCFM1fMPuwYdgC7szKt"
 			]
 		},
-		"contracts/Ownable.sol": {
+		"protocol/contracts/Ownable.sol": {
 			"keccak256": "0x33b659ff3980e52780df262aac918488dd2941f6177d886ae8cc3a2d8b5b3ed8",
 			"license": "MIT",
 			"urls": [
@@ -550,7 +550,7 @@
 				"dweb:/ipfs/QmaaGCSNBt6hVKUDv5k2Sj2eywaRxv5Q96tArZC1FjJ3dX"
 			]
 		},
-		"contracts/SafeMath.sol": {
+		"protocol/contracts/SafeMath.sol": {
 			"keccak256": "0x37facfc0b7e5a9ee9c8239bca7cb15d6825a2171df5e4bb04e48cd37c6b88e1c",
 			"license": "MIT",
 			"urls": [

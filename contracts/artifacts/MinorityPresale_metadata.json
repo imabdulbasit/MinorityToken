@@ -749,7 +749,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/MinorityPresale.sol": "MinorityPresale"
+			"protocol/contracts/MinorityPresale.sol": "MinorityPresale"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -763,7 +763,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Context.sol": {
+		"protocol/contracts/Context.sol": {
 			"keccak256": "0x63ba2e623d3438773367fa717cbd7e7ee9557c728d6f5a76aa288a8199ade742",
 			"license": "MIT",
 			"urls": [
@@ -771,7 +771,7 @@
 				"dweb:/ipfs/QmUi9ow2XWkqNEdLC7734X3Xfn3ndBnFUNWgqrgPK7fUhK"
 			]
 		},
-		"contracts/IERC20.sol": {
+		"protocol/contracts/IERC20.sol": {
 			"keccak256": "0x48c1b893a48e579ba7463a2cb3d30306e1df5c3c2be2a5cccb6e05ffd77c484c",
 			"license": "MIT",
 			"urls": [
@@ -779,23 +779,23 @@
 				"dweb:/ipfs/QmVEzjwkfev3Y8ZhZ6bBVNeE7mdSM1h961kVVZjkVaz7am"
 			]
 		},
-		"contracts/MinorityPresale.sol": {
-			"keccak256": "0xd8167fdde63ce01b58c374dba31dbaea98cb5313861bb85da8a386be505aa4d3",
+		"protocol/contracts/MinorityPresale.sol": {
+			"keccak256": "0x1916ea811dc02b293400c5b2426c4da159ddf716fe40127fbdf58041f0ec64b6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://506b8fad4f6a1efac573633a831c1c804ff852f6c01a7276e03c1355762723c8",
-				"dweb:/ipfs/QmSjCfKAhbju32YQAmrGPkkYkYHHBTcMEFWEMGq2phqj65"
+				"bzz-raw://ba5a810c6961c9d7da3fdccc25a727b26d05a5d846dd604f013f9bf0c92166b5",
+				"dweb:/ipfs/QmQwEAGBiHygDV7uBsqxpa7ELkpv5NGq8dgjhwHUYuzz5n"
 			]
 		},
-		"contracts/MinorityShared.sol": {
-			"keccak256": "0x4ec24899d88ea1f5bda3e4b8e79fbd68aa76ff3107a2fb96fd705288a70f7c00",
+		"protocol/contracts/MinorityShared.sol": {
+			"keccak256": "0x41fe016cc63aef1af22c366fe5212da985a97def6851233c59c4b6e88aae7666",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://788d95c9d3c1b5c349de02797a9c98611f1020b2e77ac7bbd017e0c69d8d4bd0",
-				"dweb:/ipfs/QmPH9xjX9i85GnHP74kHjpNpD4SyPs9pvvH1AMbG3onhoL"
+				"bzz-raw://844bdb47a0bfa254b1f9b89e40efe8bcd6a357eeeb4529c80b7ab9a10c67b95b",
+				"dweb:/ipfs/QmXshWQUxpY9SYKkjhoNPhm127JPCKaE7nEHHREmiWmZsU"
 			]
 		},
-		"contracts/Ownable.sol": {
+		"protocol/contracts/Ownable.sol": {
 			"keccak256": "0x33b659ff3980e52780df262aac918488dd2941f6177d886ae8cc3a2d8b5b3ed8",
 			"license": "MIT",
 			"urls": [
@@ -803,7 +803,7 @@
 				"dweb:/ipfs/QmaaGCSNBt6hVKUDv5k2Sj2eywaRxv5Q96tArZC1FjJ3dX"
 			]
 		},
-		"contracts/ReentrancyGuard.sol": {
+		"protocol/contracts/ReentrancyGuard.sol": {
 			"keccak256": "0x96039a4087111331c4d652c728e0040d2f2e0ed2928400a2959e46db4f2bb8df",
 			"license": "MIT",
 			"urls": [
@@ -811,7 +811,7 @@
 				"dweb:/ipfs/QmSEfHtTtnAn7tPjNnvrfU4Muuxr6A5G3YQ9u5kQtEiutF"
 			]
 		},
-		"contracts/SafeMath.sol": {
+		"protocol/contracts/SafeMath.sol": {
 			"keccak256": "0x37facfc0b7e5a9ee9c8239bca7cb15d6825a2171df5e4bb04e48cd37c6b88e1c",
 			"license": "MIT",
 			"urls": [
@@ -819,7 +819,7 @@
 				"dweb:/ipfs/QmXB1sD7CQtM35PKvLhVTAjZ9PDLnj4PQHboKQTPZEnTMq"
 			]
 		},
-		"contracts/SwapInterfaces.sol": {
+		"protocol/contracts/SwapInterfaces.sol": {
 			"keccak256": "0x677ed24a591fcd120bcb59bfe9041b685c8dc7fd1cfea71425984767f601879b",
 			"license": "MIT",
 			"urls": [

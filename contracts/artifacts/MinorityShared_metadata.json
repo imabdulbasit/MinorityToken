@@ -1,0 +1,73 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "ROUTER",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "USDC",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Stores constant shared between the token and liquidity manager contracts Prevents accidental mismatches between contracts",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"protocol/contracts/MinorityShared.sol": "MinorityShared"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"protocol/contracts/MinorityShared.sol": {
+			"keccak256": "0x41fe016cc63aef1af22c366fe5212da985a97def6851233c59c4b6e88aae7666",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://844bdb47a0bfa254b1f9b89e40efe8bcd6a357eeeb4529c80b7ab9a10c67b95b",
+				"dweb:/ipfs/QmXshWQUxpY9SYKkjhoNPhm127JPCKaE7nEHHREmiWmZsU"
+			]
+		}
+	},
+	"version": 1
+}

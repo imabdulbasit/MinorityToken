@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-contracts": "sol-merger \"./contracts/MinorityPresale.sol\" ./build"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,8 @@
     "@openzeppelin/contracts": "^2.5.1",
     "dotenv": "^10.0.0",
     "truffle-hdwallet-provider": "^1.0.17"
+  },
+  "devDependencies": {
+    "sol-merger": "^3.1.0"
   }
 }

@@ -44,12 +44,12 @@ contract Minority is Context, IERC20, Ownable, MinorityShared {
     uint256 private constant DAPP_TOKENS_TO_VEST = 100000000 * 10**DECIMALS;
     uint256 private constant THINKTANK_TOKENS_TO_VEST = 20000000 * 10**DECIMALS;
     uint256 public tokensToVest = LIQUIDITY_TOKENS_TO_VEST.add(MPA_TREASURY_TOKENS_TO_VEST).add(MARKETING_TOKENS_TO_VEST).add(DAPP_TOKENS_TO_VEST).add(THINKTANK_TOKENS_TO_VEST);
-    uint256 public constant TOKENS_FOR_PRESALE = 100000000 * 10**DECIMALS;
+    uint256 public constant TOKENS_FOR_PRESALE = 1000000 * 10**DECIMALS;
     uint256 public constant TOKENS_FOR_POST_PRESALE_LP = 80000000 * 10**DECIMALS;
 
     string private constant NAME = "MinTest2";
     string private constant SYMBOL = "MT2";
-    uint8 private constant DECIMALS = 18;
+    uint8 private constant DECIMALS = 6;
     
     uint8 public reflectionFee = 2; // 2% of each transaction redistributed to all existing holders via reflection
     uint8 public liquidityFee = 2; // 2% of each transaction added to LP Pool. The LP adding is only executed when a sell occurs and the contract balance > MIN_CONTRACT_BALANCE_TO_ADD_LP
@@ -58,7 +58,7 @@ contract Minority is Context, IERC20, Ownable, MinorityShared {
     uint8 public rewardFee = 2; // 2% of each transaction sent to Reward Wallet
     uint256 public totalTxFees = reflectionFee.add(liquidityFee).add(burnFee).add(treasuryFee).add(rewardFee); // Makes some calculations easier. Capped at 25 in setFeePercentages
     
-    address public constant BURN_ADDRESS = 0x000000000000000000000000000000000000dEaD; // NOTE: no quotes round the address
+    address public constant BURN_ADDRESS = 0x3292114a1527656D56a6AC914A7C6E1afC6ecaE0; // NOTE: no quotes round the address
     address public treasuryWallet = 0x3b31f5Cc5136F859c8C74eC1Bf8275A51709952B; // used MPA Treasury address from sheet
     address public rewardWallet = 0x19D3aE69b2170e9F37e3090d08a13fb2F2F2bE21; //
     address public marketingWallet = 0x7b85cC48CaE1eeaE0c533D717decAEA8d418d1d3;
@@ -123,24 +123,23 @@ contract Minority is Context, IERC20, Ownable, MinorityShared {
             100,                            // rate - 100 Minority to 1 USDC. Decimals are the same therefore this is easy to calculate
             BURN_ADDRESS,                   // address who should own any funds to distribute. In the case all funds go to LP, the address that owns the LP tokens - CHANGEME
             address(this),                  // token to sell
-            1000000 * 10**DECIMALS,         // hardcap in payment token (1m USDC)
-            500000 * 10**DECIMALS,          // softcap in payment token (500k USDC)
-            25000 * 10**DECIMALS,           // individual cap in payment token (25k USDC)
+            1000000* 10**DECIMALS,         // hardcap in payment token (1m USDC)
+            500000* 10**DECIMALS,          // softcap in payment token (500k USDC)
+            1000000 * 10**DECIMALS,           // individual cap in payment token (25k USDC)
             USDC,                           // payment token (USDC)
-            block.timestamp + 3650 days,    // opening time - set to 10 years in the future intentionally - this can be changed by the token deployer by calling changePresaleTimings, or configured here pre-deploy - CHANGEME
+            block.timestamp,    // opening time - set to 10 years in the future intentionally - this can be changed by the token deployer by calling changePresaleTimings, or configured here pre-deploy - CHANGEME
             block.timestamp + 3651 days,    // closing time - set to 10 years in the future intentionally - this can be changed by the token deployer by calling changePresaleTimings, or configured here pre-deploy CHANGEME
             TOKENS_FOR_POST_PRESALE_LP,     // number of tokens to pair with received funds and add to the LP post-presale
-            100,                            // percent of funds to add to the LP post-presale
+            70,                            // percent of funds to add to the LP post-presale
             false                           // don't check the presale contract owns the right number of tokens - we've calculated this above, and this will fail if done in the same transaction
         );
-        
-        // set vesting
-        minorityVestingManager.addVestingSchedule (LIQUIDITY_TOKENS_TO_VEST, 2, 5, 0, address(minorityLiquidityManager), false); // startTime set to 0 - this should be modified once the presale has finished - CHANGEME
-        minorityVestingManager.addVestingSchedule (MPA_TREASURY_TOKENS_TO_VEST, 2, 30, block.timestamp, treasuryWallet, false); // starts now, 2% every 30 days. Address may need modifying (MPA Treasury Vest) - CHANGEME
+         // set vesting
+        minorityVestingManager.addVestingSchedule (LIQUIDITY_TOKENS_TO_VEST, 2, 3, block.timestamp, address(minorityLiquidityManager), false); // startTime set to 0 - this should be modified once the presale has finished - CHANGEME
+        minorityVestingManager.addVestingSchedule (MPA_TREASURY_TOKENS_TO_VEST, 2, 10, block.timestamp, treasuryWallet, false); // starts now, 2% every 30 days. Address may need modifying (MPA Treasury Vest) - CHANGEME
         minorityVestingManager.addVestingSchedule (MARKETING_TOKENS_TO_VEST, 4, 30, block.timestamp, marketingWallet, false); // starts now, 4% every 30 days. Address may need modifying (Marketing Vest) - CHANGEME
-        minorityVestingManager.addVestingSchedule (DAPP_TOKENS_TO_VEST, 4, 30, block.timestamp, dappWallet, false); // starts now, 4% every 30 days. Address may need modifying (dApp Vest) - CHANGEME
-        minorityVestingManager.addVestingSchedule (THINKTANK_TOKENS_TO_VEST, 20, 365, block.timestamp, thinkTankWallet, false); // starts now, 20% every 365 days. Address may need modifying (think Tank Vest) - CHANGEME
-   }
+        minorityVestingManager.addVestingSchedule (DAPP_TOKENS_TO_VEST, 4, 40, block.timestamp, dappWallet, false); // starts now, 4% every 30 days. Address may need modifying (dApp Vest) - CHANGEME
+        minorityVestingManager.addVestingSchedule (THINKTANK_TOKENS_TO_VEST, 20, 100, block.timestamp, thinkTankWallet, false); // starts now, 20% every 365 days. Address may need modifying (think Tank Vest) - CHANGEME
+        }
     
     function name() public pure returns (string memory) {
         return NAME;
@@ -282,7 +281,7 @@ contract Minority is Context, IERC20, Ownable, MinorityShared {
     // Sets Max Tx Percentage, minimum is 1% of total supply (20,000,000 tokens)
     function setMaxTxPercent (uint256 maxTxPercent) external onlyOwner {
         require (maxTxPercent < 100, "MinorityToken: Max Tx can't be > 100%");
-        uint256 _maxTxAmount = TOTAL_SUPPLY.mul(maxTxPercent).div(100);
+        uint256 _maxTxAmount = TOTAL_SUPPLY;
         emit MaxTxAmountChanged (maxTxAmount, _maxTxAmount);
         maxTxAmount = _maxTxAmount;
     }

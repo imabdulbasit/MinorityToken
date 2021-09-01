@@ -242,7 +242,6 @@ contract MinorityPresale is Context, ReentrancyGuard, Ownable, MinorityShared {
         
         if (hardcapReached() || softcapReached()){
             addLiquidity();
-            
             if (percentFundsToAddToLP < 100)
                 forwardFunds();
             

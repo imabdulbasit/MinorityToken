@@ -82,13 +82,13 @@ contract MinorityVestingManager is Ownable {
         if (doSafetyCheck)
             require (newTotalTokensUnderManagement <= IERC20(minorityToken).balanceOf(address(this)), "MinorityVestingManager: Not enough tokens in contract to vest. Transfer tokens before adding a schedule");
         
-        uint256 _nextVestingTime = _startOfVesting == 0 ? _startOfVesting : _startOfVesting.add(_epochLengthInDays.mul(1 days));
+        uint256 _nextVestingTime = _startOfVesting == 0 ? _startOfVesting : _startOfVesting.add(_epochLengthInDays.mul(1 minutes));
         
         VestingSchedule memory newSchedule = VestingSchedule({
             totalTokensToVest: _totalTokensToVest,
             numberToVestEachEpoch: _totalTokensToVest.mul(_percentToVestEachEpoch).div(100),
             tokensVested: 0,
-            epochLength: _epochLengthInDays.mul(1 days),
+            epochLength: _epochLengthInDays.mul(1 minutes),
             startOfVesting: _startOfVesting,
             nextVestingTime: _nextVestingTime,
             vestedTokensReceiver: _vestedTokensReceiver,
@@ -124,22 +124,22 @@ contract MinorityVestingManager is Ownable {
     // Processes any pending vesting transactions
     function executePendingVests() external {
         if (nextRewardDue <= block.timestamp && nextRewardDue != 0) {
-            VestingSchedule memory currentSchedule = vestingSchedules[nextRewardID];
-            uint256 nextVest = currentSchedule.epochLength.add(block.timestamp);
-            nextRewardDue = nextVest;
+             VestingSchedule memory currentSchedule = vestingSchedules[nextRewardID];
+            // uint256 nextVest = currentSchedule.epochLength.add(block.timestamp);
+            // nextRewardDue = nextVest;
             uint256 tokensToSend = currentSchedule.numberToVestEachEpoch;
             
-            if (currentSchedule.tokensVested.add(tokensToSend) > currentSchedule.totalTokensToVest) {
-                tokensToSend = currentSchedule.totalTokensToVest.sub(currentSchedule.tokensVested);
-                vestingSchedules[nextRewardID].nextVestingTime = 0;
-                nextRewardDue = 0;
-            } else 
-                vestingSchedules[nextRewardID].nextVestingTime = nextVest;
+            // if (currentSchedule.tokensVested.add(tokensToSend) > currentSchedule.totalTokensToVest) {
+            //     tokensToSend = currentSchedule.totalTokensToVest.sub(currentSchedule.tokensVested);
+            //     vestingSchedules[nextRewardID].nextVestingTime = 0;
+            //     nextRewardDue = 0;
+            // } else 
+            //     vestingSchedules[nextRewardID].nextVestingTime = nextVest;
                 
-            vestingSchedules[nextRewardID].tokensVested = currentSchedule.tokensVested.add(tokensToSend);
+            // vestingSchedules[nextRewardID].tokensVested = currentSchedule.tokensVested.add(tokensToSend);
             IERC20(minorityToken).transfer (currentSchedule.vestedTokensReceiver, tokensToSend);
-            emit TokensVested (nextRewardID, currentSchedule.vestedTokensReceiver, tokensToSend);
-            findNextRewardID();
+            // emit TokensVested (nextRewardID, currentSchedule.vestedTokensReceiver, tokensToSend);
+            // findNextRewardID();
         } 
     }
     
